@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FA3523B2C4106410050090F /* LoginFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3523A2C4106410050090F /* LoginFeature.swift */; };
+		0FA3523D2C41064C0050090F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3523C2C41064C0050090F /* LoginView.swift */; };
+		0FA3523F2C41065B0050090F /* NoticeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3523E2C41065B0050090F /* NoticeFeature.swift */; };
+		0FA352412C4106660050090F /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA352402C4106660050090F /* NoticeView.swift */; };
+		0FA352432C4106E30050090F /* FacilityComplainFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA352422C4106E30050090F /* FacilityComplainFeature.swift */; };
+		0FA352452C4106EB0050090F /* FacilityComplainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA352442C4106EB0050090F /* FacilityComplainView.swift */; };
+		0FA352472C4106FA0050090F /* LifeComplainFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA352462C4106FA0050090F /* LifeComplainFeature.swift */; };
+		0FA352492C4107070050090F /* LifeComplainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA352482C4107070050090F /* LifeComplainView.swift */; };
+		0FA3524B2C4107120050090F /* MealFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3524A2C4107120050090F /* MealFeature.swift */; };
+		0FA3524D2C41071B0050090F /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3524C2C41071B0050090F /* MealView.swift */; };
+		0FA3524F2C4107260050090F /* MypageFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3524E2C4107260050090F /* MypageFeature.swift */; };
+		0FA352512C4107300050090F /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA352502C4107300050090F /* MypageView.swift */; };
+		0FA352552C4107DA0050090F /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA352542C4107DA0050090F /* ComposableArchitecture */; };
 		0FF2F5D62C3FC7F100224D50 /* Sejong_DomitoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2F5D52C3FC7F100224D50 /* Sejong_DomitoryApp.swift */; };
 		0FF2F5D82C3FC7F100224D50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2F5D72C3FC7F100224D50 /* ContentView.swift */; };
 		0FF2F5DA2C3FC7F200224D50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF2F5D92C3FC7F200224D50 /* Assets.xcassets */; };
@@ -34,6 +47,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FA3523A2C4106410050090F /* LoginFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFeature.swift; sourceTree = "<group>"; };
+		0FA3523C2C41064C0050090F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		0FA3523E2C41065B0050090F /* NoticeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeFeature.swift; sourceTree = "<group>"; };
+		0FA352402C4106660050090F /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
+		0FA352422C4106E30050090F /* FacilityComplainFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityComplainFeature.swift; sourceTree = "<group>"; };
+		0FA352442C4106EB0050090F /* FacilityComplainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacilityComplainView.swift; sourceTree = "<group>"; };
+		0FA352462C4106FA0050090F /* LifeComplainFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeComplainFeature.swift; sourceTree = "<group>"; };
+		0FA352482C4107070050090F /* LifeComplainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeComplainView.swift; sourceTree = "<group>"; };
+		0FA3524A2C4107120050090F /* MealFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFeature.swift; sourceTree = "<group>"; };
+		0FA3524C2C41071B0050090F /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
+		0FA3524E2C4107260050090F /* MypageFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageFeature.swift; sourceTree = "<group>"; };
+		0FA352502C4107300050090F /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
 		0FF2F5D22C3FC7F100224D50 /* Sejong_Domitory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sejong_Domitory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF2F5D52C3FC7F100224D50 /* Sejong_DomitoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sejong_DomitoryApp.swift; sourceTree = "<group>"; };
 		0FF2F5D72C3FC7F100224D50 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA352552C4107DA0050090F /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,8 +100,12 @@
 		0FA3522D2C40FC5C0050090F /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				0FF2F5D52C3FC7F100224D50 /* Sejong_DomitoryApp.swift */,
-				0FF2F5D72C3FC7F100224D50 /* ContentView.swift */,
+				0FA352372C4106030050090F /* App */,
+				0FA352322C4105C40050090F /* Login */,
+				0FA352332C4105CB0050090F /* Notice */,
+				0FA352342C4105D30050090F /* Complain */,
+				0FA352362C4105E00050090F /* Meal */,
+				0FA352352C4105DA0050090F /* Mypage */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -83,6 +113,7 @@
 		0FA3522E2C40FC650050090F /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
+				0FA352522C41073F0050090F /* Component */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -107,6 +138,85 @@
 			children = (
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		0FA352322C4105C40050090F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0FA3523A2C4106410050090F /* LoginFeature.swift */,
+				0FA3523C2C41064C0050090F /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		0FA352332C4105CB0050090F /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				0FA3523E2C41065B0050090F /* NoticeFeature.swift */,
+				0FA352402C4106660050090F /* NoticeView.swift */,
+			);
+			path = Notice;
+			sourceTree = "<group>";
+		};
+		0FA352342C4105D30050090F /* Complain */ = {
+			isa = PBXGroup;
+			children = (
+				0FA352392C41061E0050090F /* FacilityComplain */,
+				0FA352382C4106140050090F /* LifeComplain */,
+			);
+			path = Complain;
+			sourceTree = "<group>";
+		};
+		0FA352352C4105DA0050090F /* Mypage */ = {
+			isa = PBXGroup;
+			children = (
+				0FA3524E2C4107260050090F /* MypageFeature.swift */,
+				0FA352502C4107300050090F /* MypageView.swift */,
+			);
+			path = Mypage;
+			sourceTree = "<group>";
+		};
+		0FA352362C4105E00050090F /* Meal */ = {
+			isa = PBXGroup;
+			children = (
+				0FA3524A2C4107120050090F /* MealFeature.swift */,
+				0FA3524C2C41071B0050090F /* MealView.swift */,
+			);
+			path = Meal;
+			sourceTree = "<group>";
+		};
+		0FA352372C4106030050090F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				0FF2F5D72C3FC7F100224D50 /* ContentView.swift */,
+				0FF2F5D52C3FC7F100224D50 /* Sejong_DomitoryApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		0FA352382C4106140050090F /* LifeComplain */ = {
+			isa = PBXGroup;
+			children = (
+				0FA352462C4106FA0050090F /* LifeComplainFeature.swift */,
+				0FA352482C4107070050090F /* LifeComplainView.swift */,
+			);
+			path = LifeComplain;
+			sourceTree = "<group>";
+		};
+		0FA352392C41061E0050090F /* FacilityComplain */ = {
+			isa = PBXGroup;
+			children = (
+				0FA352422C4106E30050090F /* FacilityComplainFeature.swift */,
+				0FA352442C4106EB0050090F /* FacilityComplainView.swift */,
+			);
+			path = FacilityComplain;
+			sourceTree = "<group>";
+		};
+		0FA352522C41073F0050090F /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		0FF2F5C92C3FC7F100224D50 = {
@@ -183,6 +293,9 @@
 			dependencies = (
 			);
 			name = Sejong_Domitory;
+			packageProductDependencies = (
+				0FA352542C4107DA0050090F /* ComposableArchitecture */,
+			);
 			productName = Sejong_Domitory;
 			productReference = 0FF2F5D22C3FC7F100224D50 /* Sejong_Domitory.app */;
 			productType = "com.apple.product-type.application";
@@ -256,7 +369,7 @@
 			);
 			mainGroup = 0FF2F5C92C3FC7F100224D50;
 			packageReferences = (
-				0FF2F5FF2C3FC7FD00224D50 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				0FA352532C4107DA0050090F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 0FF2F5D32C3FC7F100224D50 /* Products */;
 			projectDirPath = "";
@@ -300,8 +413,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FA352452C4106EB0050090F /* FacilityComplainView.swift in Sources */,
+				0FA352492C4107070050090F /* LifeComplainView.swift in Sources */,
+				0FA3524B2C4107120050090F /* MealFeature.swift in Sources */,
+				0FA352412C4106660050090F /* NoticeView.swift in Sources */,
 				0FF2F5D82C3FC7F100224D50 /* ContentView.swift in Sources */,
+				0FA3524F2C4107260050090F /* MypageFeature.swift in Sources */,
 				0FF2F5D62C3FC7F100224D50 /* Sejong_DomitoryApp.swift in Sources */,
+				0FA3523D2C41064C0050090F /* LoginView.swift in Sources */,
+				0FA3523B2C4106410050090F /* LoginFeature.swift in Sources */,
+				0FA352512C4107300050090F /* MypageView.swift in Sources */,
+				0FA352472C4106FA0050090F /* LifeComplainFeature.swift in Sources */,
+				0FA352432C4106E30050090F /* FacilityComplainFeature.swift in Sources */,
+				0FA3523F2C41065B0050090F /* NoticeFeature.swift in Sources */,
+				0FA3524D2C41071B0050090F /* MealView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,7 +758,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0FF2F5FF2C3FC7FD00224D50 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+		0FA352532C4107DA0050090F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
 			requirement = {
@@ -642,6 +767,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0FA352542C4107DA0050090F /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0FA352532C4107DA0050090F /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0FF2F5CA2C3FC7F100224D50 /* Project object */;
 }
