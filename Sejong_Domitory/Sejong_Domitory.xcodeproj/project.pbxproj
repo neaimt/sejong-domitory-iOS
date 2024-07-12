@@ -71,6 +71,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FA3522D2C40FC5C0050090F /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				0FF2F5D52C3FC7F100224D50 /* Sejong_DomitoryApp.swift */,
+				0FF2F5D72C3FC7F100224D50 /* ContentView.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		0FA3522E2C40FC650050090F /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		0FA3522F2C40FCF00050090F /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				0FF2F5D92C3FC7F200224D50 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		0FA352302C40FD000050090F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		0FA352312C40FD940050090F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		0FF2F5C92C3FC7F100224D50 = {
 			isa = PBXGroup;
 			children = (
@@ -94,9 +132,11 @@
 		0FF2F5D42C3FC7F100224D50 /* Sejong_Domitory */ = {
 			isa = PBXGroup;
 			children = (
-				0FF2F5D52C3FC7F100224D50 /* Sejong_DomitoryApp.swift */,
-				0FF2F5D72C3FC7F100224D50 /* ContentView.swift */,
-				0FF2F5D92C3FC7F200224D50 /* Assets.xcassets */,
+				0FA3522D2C40FC5C0050090F /* Application */,
+				0FA352302C40FD000050090F /* Data */,
+				0FA3522E2C40FC650050090F /* DesignSystem */,
+				0FA352312C40FD940050090F /* Utility */,
+				0FA3522F2C40FCF00050090F /* Resource */,
 				0FF2F5DB2C3FC7F200224D50 /* Preview Content */,
 			);
 			path = Sejong_Domitory;
