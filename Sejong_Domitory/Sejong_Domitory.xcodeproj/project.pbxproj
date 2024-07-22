@@ -21,6 +21,12 @@
 		0FA352512C4107300050090F /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA352502C4107300050090F /* MypageView.swift */; };
 		0FA352552C4107DA0050090F /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA352542C4107DA0050090F /* ComposableArchitecture */; };
 		0FA352572C4112660050090F /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA352562C4112660050090F /* TextField.swift */; };
+		0FC1A78C2C4E833C001BF110 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC1A78B2C4E833C001BF110 /* TabBarItem.swift */; };
+		0FC1A78F2C4E83DB001BF110 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC1A78E2C4E83DB001BF110 /* CustomTabBarView.swift */; };
+		0FC1A7912C4E83EE001BF110 /* CustomTabBarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC1A7902C4E83EE001BF110 /* CustomTabBarContainerView.swift */; };
+		0FC1A7932C4E83FF001BF110 /* TabBarItemPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC1A7922C4E83FF001BF110 /* TabBarItemPreferenceKey.swift */; };
+		0FC1A7962C4E87EB001BF110 /* TabFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC1A7952C4E87EB001BF110 /* TabFeature.swift */; };
+		0FC1A7982C4E87F4001BF110 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC1A7972C4E87F4001BF110 /* TabView.swift */; };
 		0FF2F5D62C3FC7F100224D50 /* Sejong_DomitoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2F5D52C3FC7F100224D50 /* Sejong_DomitoryApp.swift */; };
 		0FF2F5D82C3FC7F100224D50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2F5D72C3FC7F100224D50 /* ContentView.swift */; };
 		0FF2F5DA2C3FC7F200224D50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF2F5D92C3FC7F200224D50 /* Assets.xcassets */; };
@@ -61,6 +67,12 @@
 		0FA3524E2C4107260050090F /* MypageFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageFeature.swift; sourceTree = "<group>"; };
 		0FA352502C4107300050090F /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
 		0FA352562C4112660050090F /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		0FC1A78B2C4E833C001BF110 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		0FC1A78E2C4E83DB001BF110 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
+		0FC1A7902C4E83EE001BF110 /* CustomTabBarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarContainerView.swift; sourceTree = "<group>"; };
+		0FC1A7922C4E83FF001BF110 /* TabBarItemPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemPreferenceKey.swift; sourceTree = "<group>"; };
+		0FC1A7952C4E87EB001BF110 /* TabFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabFeature.swift; sourceTree = "<group>"; };
+		0FC1A7972C4E87F4001BF110 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		0FF2F5D22C3FC7F100224D50 /* Sejong_Domitory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sejong_Domitory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF2F5D52C3FC7F100224D50 /* Sejong_DomitoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sejong_DomitoryApp.swift; sourceTree = "<group>"; };
 		0FF2F5D72C3FC7F100224D50 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				0FA352372C4106030050090F /* App */,
+				0FC1A7942C4E87D1001BF110 /* TabView */,
 				0FA352322C4105C40050090F /* Login */,
 				0FA352332C4105CB0050090F /* Notice */,
 				0FA352342C4105D30050090F /* Complain */,
@@ -217,9 +230,30 @@
 		0FA352522C41073F0050090F /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				0FC1A78D2C4E8395001BF110 /* CustomTabBar */,
 				0FA352562C4112660050090F /* TextField.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		0FC1A78D2C4E8395001BF110 /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				0FC1A78B2C4E833C001BF110 /* TabBarItem.swift */,
+				0FC1A78E2C4E83DB001BF110 /* CustomTabBarView.swift */,
+				0FC1A7902C4E83EE001BF110 /* CustomTabBarContainerView.swift */,
+				0FC1A7922C4E83FF001BF110 /* TabBarItemPreferenceKey.swift */,
+			);
+			path = CustomTabBar;
+			sourceTree = "<group>";
+		};
+		0FC1A7942C4E87D1001BF110 /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				0FC1A7952C4E87EB001BF110 /* TabFeature.swift */,
+				0FC1A7972C4E87F4001BF110 /* TabView.swift */,
+			);
+			path = TabView;
 			sourceTree = "<group>";
 		};
 		0FF2F5C92C3FC7F100224D50 = {
@@ -419,14 +453,20 @@
 				0FA352452C4106EB0050090F /* FacilityComplainView.swift in Sources */,
 				0FA352492C4107070050090F /* LifeComplainView.swift in Sources */,
 				0FA3524B2C4107120050090F /* MealFeature.swift in Sources */,
+				0FC1A78C2C4E833C001BF110 /* TabBarItem.swift in Sources */,
+				0FC1A7982C4E87F4001BF110 /* TabView.swift in Sources */,
+				0FC1A78F2C4E83DB001BF110 /* CustomTabBarView.swift in Sources */,
 				0FA352572C4112660050090F /* TextField.swift in Sources */,
 				0FA352412C4106660050090F /* NoticeView.swift in Sources */,
 				0FF2F5D82C3FC7F100224D50 /* ContentView.swift in Sources */,
 				0FA3524F2C4107260050090F /* MypageFeature.swift in Sources */,
+				0FC1A7932C4E83FF001BF110 /* TabBarItemPreferenceKey.swift in Sources */,
+				0FC1A7962C4E87EB001BF110 /* TabFeature.swift in Sources */,
 				0FF2F5D62C3FC7F100224D50 /* Sejong_DomitoryApp.swift in Sources */,
 				0FA3523D2C41064C0050090F /* LoginView.swift in Sources */,
 				0FA3523B2C4106410050090F /* LoginFeature.swift in Sources */,
 				0FA352512C4107300050090F /* MypageView.swift in Sources */,
+				0FC1A7912C4E83EE001BF110 /* CustomTabBarContainerView.swift in Sources */,
 				0FA352472C4106FA0050090F /* LifeComplainFeature.swift in Sources */,
 				0FA352432C4106E30050090F /* FacilityComplainFeature.swift in Sources */,
 				0FA3523F2C41065B0050090F /* NoticeFeature.swift in Sources */,
