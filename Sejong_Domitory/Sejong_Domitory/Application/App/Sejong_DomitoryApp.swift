@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct Sejong_DomitoryApp: App {
+    static let store = Store(initialState: LoginFeature.State()) {
+      LoginFeature()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView(store: Sejong_DomitoryApp.store)
         }
     }
 }

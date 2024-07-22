@@ -20,6 +20,7 @@
 		0FA3524F2C4107260050090F /* MypageFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA3524E2C4107260050090F /* MypageFeature.swift */; };
 		0FA352512C4107300050090F /* MypageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA352502C4107300050090F /* MypageView.swift */; };
 		0FA352552C4107DA0050090F /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 0FA352542C4107DA0050090F /* ComposableArchitecture */; };
+		0FA352572C4112660050090F /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA352562C4112660050090F /* TextField.swift */; };
 		0FF2F5D62C3FC7F100224D50 /* Sejong_DomitoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2F5D52C3FC7F100224D50 /* Sejong_DomitoryApp.swift */; };
 		0FF2F5D82C3FC7F100224D50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2F5D72C3FC7F100224D50 /* ContentView.swift */; };
 		0FF2F5DA2C3FC7F200224D50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF2F5D92C3FC7F200224D50 /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		0FA3524C2C41071B0050090F /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
 		0FA3524E2C4107260050090F /* MypageFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageFeature.swift; sourceTree = "<group>"; };
 		0FA352502C4107300050090F /* MypageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageView.swift; sourceTree = "<group>"; };
+		0FA352562C4112660050090F /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		0FF2F5D22C3FC7F100224D50 /* Sejong_Domitory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sejong_Domitory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF2F5D52C3FC7F100224D50 /* Sejong_DomitoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sejong_DomitoryApp.swift; sourceTree = "<group>"; };
 		0FF2F5D72C3FC7F100224D50 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 		0FA352522C41073F0050090F /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				0FA352562C4112660050090F /* TextField.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				0FA352452C4106EB0050090F /* FacilityComplainView.swift in Sources */,
 				0FA352492C4107070050090F /* LifeComplainView.swift in Sources */,
 				0FA3524B2C4107120050090F /* MealFeature.swift in Sources */,
+				0FA352572C4112660050090F /* TextField.swift in Sources */,
 				0FA352412C4106660050090F /* NoticeView.swift in Sources */,
 				0FF2F5D82C3FC7F100224D50 /* ContentView.swift in Sources */,
 				0FA3524F2C4107260050090F /* MypageFeature.swift in Sources */,
@@ -597,7 +601,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -626,7 +630,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
