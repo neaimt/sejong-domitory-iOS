@@ -27,6 +27,8 @@
 		0FC1A7932C4E83FF001BF110 /* TabBarItemPreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC1A7922C4E83FF001BF110 /* TabBarItemPreferenceKey.swift */; };
 		0FC1A7962C4E87EB001BF110 /* TabFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC1A7952C4E87EB001BF110 /* TabFeature.swift */; };
 		0FC1A7982C4E87F4001BF110 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC1A7972C4E87F4001BF110 /* TabView.swift */; };
+		0FC1A8282C4F9BC1001BF110 /* ComplainFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC1A8272C4F9BC1001BF110 /* ComplainFeature.swift */; };
+		0FC1A82A2C4F9BC9001BF110 /* ComplainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC1A8292C4F9BC9001BF110 /* ComplainView.swift */; };
 		0FF2F5D62C3FC7F100224D50 /* Sejong_DomitoryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2F5D52C3FC7F100224D50 /* Sejong_DomitoryApp.swift */; };
 		0FF2F5D82C3FC7F100224D50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2F5D72C3FC7F100224D50 /* ContentView.swift */; };
 		0FF2F5DA2C3FC7F200224D50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF2F5D92C3FC7F200224D50 /* Assets.xcassets */; };
@@ -73,6 +75,8 @@
 		0FC1A7922C4E83FF001BF110 /* TabBarItemPreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemPreferenceKey.swift; sourceTree = "<group>"; };
 		0FC1A7952C4E87EB001BF110 /* TabFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabFeature.swift; sourceTree = "<group>"; };
 		0FC1A7972C4E87F4001BF110 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		0FC1A8272C4F9BC1001BF110 /* ComplainFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplainFeature.swift; sourceTree = "<group>"; };
+		0FC1A8292C4F9BC9001BF110 /* ComplainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplainView.swift; sourceTree = "<group>"; };
 		0FF2F5D22C3FC7F100224D50 /* Sejong_Domitory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sejong_Domitory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF2F5D52C3FC7F100224D50 /* Sejong_DomitoryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sejong_DomitoryApp.swift; sourceTree = "<group>"; };
 		0FF2F5D72C3FC7F100224D50 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 		0FA352342C4105D30050090F /* Complain */ = {
 			isa = PBXGroup;
 			children = (
+				0FC1A8262C4F9BB0001BF110 /* Complain */,
 				0FA352392C41061E0050090F /* FacilityComplain */,
 				0FA352382C4106140050090F /* LifeComplain */,
 			);
@@ -254,6 +259,15 @@
 				0FC1A7972C4E87F4001BF110 /* TabView.swift */,
 			);
 			path = TabView;
+			sourceTree = "<group>";
+		};
+		0FC1A8262C4F9BB0001BF110 /* Complain */ = {
+			isa = PBXGroup;
+			children = (
+				0FC1A8272C4F9BC1001BF110 /* ComplainFeature.swift */,
+				0FC1A8292C4F9BC9001BF110 /* ComplainView.swift */,
+			);
+			path = Complain;
 			sourceTree = "<group>";
 		};
 		0FF2F5C92C3FC7F100224D50 = {
@@ -460,6 +474,7 @@
 				0FA352412C4106660050090F /* NoticeView.swift in Sources */,
 				0FF2F5D82C3FC7F100224D50 /* ContentView.swift in Sources */,
 				0FA3524F2C4107260050090F /* MypageFeature.swift in Sources */,
+				0FC1A82A2C4F9BC9001BF110 /* ComplainView.swift in Sources */,
 				0FC1A7932C4E83FF001BF110 /* TabBarItemPreferenceKey.swift in Sources */,
 				0FC1A7962C4E87EB001BF110 /* TabFeature.swift in Sources */,
 				0FF2F5D62C3FC7F100224D50 /* Sejong_DomitoryApp.swift in Sources */,
@@ -469,6 +484,7 @@
 				0FC1A7912C4E83EE001BF110 /* CustomTabBarContainerView.swift in Sources */,
 				0FA352472C4106FA0050090F /* LifeComplainFeature.swift in Sources */,
 				0FA352432C4106E30050090F /* FacilityComplainFeature.swift in Sources */,
+				0FC1A8282C4F9BC1001BF110 /* ComplainFeature.swift in Sources */,
 				0FA3523F2C41065B0050090F /* NoticeFeature.swift in Sources */,
 				0FA3524D2C41071B0050090F /* MealView.swift in Sources */,
 			);

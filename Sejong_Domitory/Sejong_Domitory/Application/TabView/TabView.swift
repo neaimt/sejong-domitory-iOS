@@ -13,9 +13,10 @@ struct TabView: View {
     var body: some View {
         NavigationStack {
             CustomTabBarContainerView(selection: $tabSelection) {
-                MypageView()
-                    .tabBarItem(tab: .notice, selection: $tabSelection)
                 NoticeView()
+                    .tabBarItem(tab: .notice, selection: $tabSelection)
+                
+                ComplainView()
                     .tabBarItem(tab: .complain, selection: $tabSelection)
                 MypageView()
                     .tabBarItem(tab: .meal, selection: $tabSelection)
