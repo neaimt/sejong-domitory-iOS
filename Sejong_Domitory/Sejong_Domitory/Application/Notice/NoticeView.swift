@@ -1,60 +1,101 @@
 import SwiftUI
+import ComposableArchitecture
 
 struct NoticeView: View {
-    @State var search: String = ""
+    @Bindable var store: StoreOf<NoticeFeature>
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            
-            // 공지사항 글씨
-            Text("공지사항")
-                .font(.system(size: 20, weight: .bold))
-                .padding(.leading, 25)
-                .padding(.bottom, 20)
-            
-            
-            // 검색바
-            ZStack {
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(Color.search)
-                    .frame(height: 35)
+        NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
+            VStack(alignment: .leading) {
                 
-                HStack {
-                    Image("search")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 20, height: 20)
-                    TextField("검색", text: $search)
-                        .foregroundColor(Color.sejonggray)
+                title // 공지사항 글씨
+                searchBar // 검색바
+                
+                // 리스트 스크롤 뷰로 제작
+                ScrollView {
+                    ForEach(store.notices, id: \.self) { content in
+                        NavigationLink(state: NoticeDetailFeature.State(notice: content)) {
+                            notice(content: content)
+                        }
+                    }
                 }
-                .padding(.leading, 10)
+                .padding(.top, 10)
+                
+                Spacer()
+                
             }
-            .padding(.horizontal, 25)
+            .ignoresSafeArea()
+        } destination: { store in
+            NoticeDetailView(store: store)
+        }
+    }
+    
+    // 공지사항
+    private var title: some View {
+        Text("공지사항")
+            .font(.system(size: 20, weight: .bold))
+            .padding(.leading, 25)
+            .padding(.bottom, 20)
+            .padding(.top, 60)
+    }
+    
+    // 검색바
+    private var searchBar: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 15)
+                .fill(Color.search)
+                .frame(height: 35)
             
-            // 리스트 스크롤 뷰로 제작
+            HStack {
+                Image("search")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 20, height: 20)
+                TextField("검색", text: $store.searchString.sending(\.setSearch))
+                    .foregroundColor(Color.sejonggray)
+            }
+            .padding(.leading, 10)
+        }
+        .padding(.horizontal, 25)
+    }
+    
+    // 공지리스트 -> 네비게이션 링크 설정 필요
+    @ViewBuilder func notice(content : Notice) -> some View {
+        VStack {
             ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
                 Rectangle()
                     .fill(Color.white)
                     .frame(height: 70)
-                    .border(Color.search)
                     
+                
                 VStack(alignment: .leading) {
-                    Text("행정실 / 1주전")
+                    Text(content.noticeWriter + " / " + content.noticeCreatedAt )
                         .font(.system(size: 10, weight: .bold))
                         .padding(.bottom, 10)
                     
-                    Text("★★중간/정기퇴사 시 금액 환불 신청 방법 안내★★")
+                    Text(content.noticeTitle)
                         .font(.system(size: 14, weight: .bold))
                         .padding(.bottom, 10)
                 }
+                .foregroundStyle(Color.black)
                 .padding(.leading, 10)
             }
-        
-            Spacer()
             
+            Divider()
+                .foregroundStyle(Color.search)
+                .offset(y:-7)
         }
     }
 }
 
 #Preview {
-    NoticeView()
+    NoticeView(
+        store: Store(
+            initialState: NoticeFeature.State(
+                notices: noticeList.notices,
+                searchString: ""
+            ),
+            reducer: {
+                NoticeFeature()
+            }))
 }
