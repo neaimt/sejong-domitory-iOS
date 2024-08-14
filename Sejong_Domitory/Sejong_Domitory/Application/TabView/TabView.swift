@@ -1,27 +1,43 @@
-//
-//  TabView.swift
-//  Sejong_Domitory
-//
-//  Created by 박근경 on 2024/07/22.
-//
-
 import SwiftUI
+import ComposableArchitecture
 
 struct TabView: View {
-    @State private var tabSelection: TabBarItem = .notice
+    @Bindable var store: StoreOf<TabFeature>
     
     var body: some View {
         NavigationStack {
-            CustomTabBarContainerView(selection: $tabSelection) {
-                NoticeView()
-                    .tabBarItem(tab: .notice, selection: $tabSelection)
+            CustomTabBarContainerView(selection: $store.tabSelection) {
+                NavigationView {
+                    NoticeView(
+                        store: Store(
+                            initialState: NoticeFeature.State(
+                                notices: noticeList.notices,
+                                searchString: ""
+                            ),
+                            reducer: {
+                                NoticeFeature()
+                            }))
+                }
+                    .tabBarItem(tab: .notice, selection: $store.tabSelection)
                 
-                ComplainView()
-                    .tabBarItem(tab: .complain, selection: $tabSelection)
-                MypageView()
-                    .tabBarItem(tab: .meal, selection: $tabSelection)
-                MypageView()
-                    .tabBarItem(tab: .mypage, selection: $tabSelection)
+                NavigationView {
+                    ComplainView()
+                }
+                .tabBarItem(tab: .complain, selection: $store.tabSelection)
+                    
+                
+                NavigationView {
+                    MealView(store: Store(initialState: MealFeature.State(menu: []), reducer: {
+                        MealFeature()
+                    }))
+                }
+                    .tabBarItem(tab: .meal, selection: $store.tabSelection)
+                
+                NavigationView {
+                    MypageView()
+                }
+                    .tabBarItem(tab: .mypage, selection: $store.tabSelection)
+                    
             }
             .ignoresSafeArea()
         }
@@ -29,5 +45,9 @@ struct TabView: View {
 }
 
 #Preview {
-    TabView()
+    TabView(store: Store(initialState: TabFeature.State(), 
+                         reducer: {
+        TabFeature()
+    }))
 }
+

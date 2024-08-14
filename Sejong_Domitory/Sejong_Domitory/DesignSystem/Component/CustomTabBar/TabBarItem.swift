@@ -1,7 +1,7 @@
 import SwiftUI
 
 // MARK: 탭바 아이템 enum
-enum TabBarItem: Hashable {
+enum TabBarItem: Hashable, Equatable {
     case notice, complain, meal, mypage
     
     var iconName: String {
