@@ -40,5 +40,8 @@ struct NoticeFeature {
                 return .none
             }
         }
+        .forEach(\.path, action: \.path) {
+            NoticeDetailFeature()
+        }
     }
 }

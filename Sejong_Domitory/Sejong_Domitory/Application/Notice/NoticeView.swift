@@ -2,7 +2,7 @@ import SwiftUI
 import ComposableArchitecture
 
 struct NoticeView: View {
-    @State var store: StoreOf<NoticeFeature>
+    @Bindable var store: StoreOf<NoticeFeature>
     
     var body: some View {
         NavigationStack(path: $store.scope(state: \.path, action: \.path)) {

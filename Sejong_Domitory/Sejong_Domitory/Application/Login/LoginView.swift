@@ -5,26 +5,25 @@ struct LoginView: View {
     @Bindable var store: StoreOf<LoginFeature>
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                Spacer()
-                    .frame(height: 60)
-                
-                logo//로고
-                
-                Spacer()
-                    .frame(height: 30)
-                
-                id //아이디
-                pw //비밀번호
-                check // 개인정보 처리 방침 확인
-                
-                Spacer()
-                
-                loginButton// 로그인 버튼
-            }
-            .ignoresSafeArea(.keyboard)
+        VStack {
+            Spacer()
+                .frame(height: 60)
+            
+            logo//로고
+            
+            Spacer()
+                .frame(height: 30)
+            
+            id //아이디
+            pw //비밀번호
+            check // 개인정보 처리 방침 확인
+            
+            Spacer()
+            
+            loginButton// 로그인 버튼
         }
+        .ignoresSafeArea(.keyboard)
+    }
 //        .fullScreenCover(
 //              item: $store.scope(state: \.TabView, action: \.TabView)
 //            ) { TabViewStore in
@@ -39,7 +38,6 @@ struct LoginView: View {
 //            .transaction { transaction in
 //                transaction.disablesAnimations = true
 //            }
-    }
     
     // 세종대 로고
     private var logo: some View {

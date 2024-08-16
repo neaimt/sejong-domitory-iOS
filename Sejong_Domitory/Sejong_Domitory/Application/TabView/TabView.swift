@@ -6,32 +6,29 @@ struct TabView: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            ForEach(store.tabs, id: \.self) { tab in
-                VStack {
-                    if store.selection == tab {
-                        // 각 탭에 해당하는 화면을 여기에 추가
-                        if store.selection == .notice {
-                            NoticeView(store: store.scope(state: \.noticeState, action: \.notice))
-                        }
-                        else if store.selection == .complain {
-                            ComplainView()
-                        }
-                        else if store.selection == .meal {
-                            NavigationView {
-                                MealView(store: store.scope(state: \.mealState, action: \.meal))
-                            }
-                        }
-                        else if store.selection == .mypage {
-                            MypageView(store: store.scope(state: \.mypageState, action: \.mypage))
-                        }
+            VStack {
+                switch store.selection {
+                case .notice:
+                    NoticeView(store: store.scope(state: \.noticeState, action: \.notice))
+                    
+                case .complain:
+                    ComplainView()
+                    
+                case .meal:
+                    NavigationView {
+                        MealView(store: store.scope(state: \.mealState, action: \.meal))
                     }
+                    
+                case .mypage:
+                    MypageView(store: store.scope(state: \.mypageState, action: \.mypage))
                 }
             }
             
             tabBarVersion1(Store: store)
-                .onChange(of: store.selection, { oldValue, newValue in
-                    store.send(.switchToTab(newValue))
-                })
+               
+        }
+        .onAppear {
+            print("TabView OnAppear")
         }
         .ignoresSafeArea()
     }
@@ -84,8 +81,7 @@ struct TabView: View {
                 .stroke(.black, lineWidth: 0.1)
         )
     }
-                                  
-    
+                                
 }
 
 #Preview {

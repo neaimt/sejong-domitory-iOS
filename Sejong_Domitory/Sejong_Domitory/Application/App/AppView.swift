@@ -5,20 +5,24 @@ struct AppView: View {
     @Bindable var store: StoreOf<AppFeature>
     
     var body: some View {
-        NavigationStack {
+        VStack {
             if store.isLoggedIn {
-                if let tabState = store.scope(state: \.tabState, action: \.tab) {
-                    TabView(store: tabState)
+                IfLetStore(store.scope(state: \.tabState, action: \.tab)) { store in
+                    TabView(store: store)
                 }
             } else {
-                if let loginState = store.scope(state: \.loginState, action: \.login) {
-                    LoginView(store: loginState)
+                IfLetStore(store.scope(state: \.loginState, action: \.login)) { store in
+                    LoginView(store: store)
                 }
             }
         }
         .onAppear {
-            store.send(.firstView)
+            print("AppView OnAppear")
+            if !store.isLoggedIn {
+                store.send(.setLoggedIn(false))
+            }
         }
+
     }
 }
 

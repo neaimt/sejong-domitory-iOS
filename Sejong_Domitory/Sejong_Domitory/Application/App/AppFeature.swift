@@ -10,7 +10,6 @@ struct AppFeature {
     }
     
     enum Action {
-        case firstView
         case login(LoginFeature.Action)
         case tab(TabFeature.Action)
         case setLoggedIn(Bool)
@@ -20,38 +19,38 @@ struct AppFeature {
         
         Reduce { state, action in
             switch action {
-            case .firstView:
-                if state.loginState == nil {
-                    state.loginState = LoginFeature.State()
-                }
-                print("AppView OnAppear")
-                return .none
-            case .setLoggedIn(let isLoggedIn):
+                
+            case .setLoggedIn(let isLoggedIn): // 로그인 유무에 따라 로그인 화면, 탭 화면 변경
                 state.isLoggedIn = isLoggedIn
+                
                 if isLoggedIn {
                     state.tabState = TabFeature.State()
                     state.loginState = nil
                 } else {
                     state.loginState = LoginFeature.State()
-                    state.tabState = nil
+                    if state.tabState != nil {
+                        state.tabState = nil
+                    }
                 }
                 return .none
                 
-            case .login(.loginButtonTapped):
+            case .login(.loginButtonTapped): // 로그인 화면에서 로그인 버튼 클릭
                 print("App loginButtonTapped")
                 return .send(.setLoggedIn(true))
-            case .tab(.mypage(.logoutButtonTapped)):
+                
+            case .tab(.mypage(.logoutButtonTapped)): // 마이페이지 화면에서 로그아웃 버튼 클릭
                 print("App logoutButtonTapped")
                 return .send(.setLoggedIn(false))
+                
             case .login, .tab:
                 return .none
             }
         }
         .ifLet(\.loginState, action: /Action.login) {
-                   LoginFeature()
+            LoginFeature()
         }
         .ifLet(\.tabState, action: /Action.tab) {
-                   TabFeature()
+            TabFeature()
         }
     }
 }
