@@ -3,7 +3,6 @@ import ComposableArchitecture
 
 @Reducer
 struct LoginFeature {
-    
     // 텍스트 필드 오류 찾기
     @ObservableState
     struct State: Equatable {
@@ -20,7 +19,6 @@ struct LoginFeature {
     
     enum Action: BindableAction {
         case binding(BindingAction<State>)
-        
         case loginButtonTapped
         case loginSuccess
         case loginFailure
@@ -28,15 +26,9 @@ struct LoginFeature {
     
     // MARK: Reducer
     var body: some ReducerOf<Self> {
+        
         Reduce { state, action in
             switch action {
-            case .binding(\.id):
-                print ( "username" , state.id)
-                return .none
-            case .binding(\.pw):
-                print ( "username" , state.pw)
-                return .none
-                
             case .loginSuccess:
                 return .none
                 
@@ -44,13 +36,26 @@ struct LoginFeature {
                 return .none
                 
             case .loginButtonTapped:
-                if state.idTyping == true && state.pwTyping == true {
-                    return .none
-                }
+                print("Login logInButtonTapped")
+//                if state.idTyping == true && state.pwTyping == true {
+                   
+//                    return .none
+//                }
                 return .none
+                
             case .binding(_):
                 return .none
+                
+//            case .binding(\.id):
+//                print ( "username" , state.id)
+//                return .none
+//                
+//            case .binding(\.pw):
+//                print ( "username" , state.pw)
+//                return .none
+                
             }
         }
+        
     }
 }
