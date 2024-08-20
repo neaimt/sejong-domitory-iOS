@@ -23,7 +23,7 @@ struct MealView: View {
             .padding(.top, 50)
             
             // 식단표
-            mealBoard()
+            mealBoard(menu: store.menu[dayToNumber(day: store.selectedDay?.dayName) ?? 0])
             .padding(.horizontal, 15)
             
 
@@ -147,7 +147,7 @@ struct MealView: View {
     }
     
     // 식단표
-    @ViewBuilder func mealBoard()-> some View {
+    @ViewBuilder func mealBoard(menu: Menu)-> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
                 .fill(Color.white)
@@ -156,16 +156,16 @@ struct MealView: View {
                 .shadow(radius: 3)
             
             VStack {
-                Text("7월 11일")
+                Text(menu.date)
                     .font(.system(size: 16, weight: .bold))
                 
                 // 조식
                 hourMenu(hour: "조식", menu: "식당 카페에 샐러드& 샌드위치 예약 하신 후 이용 가능합니다.")
                 // 중식
-                hourMenu(hour: "중식", menu: "쌀밥 채개장 돈육곤약장조림 탕평채 톳두부무침 배추김치")
+                hourMenu(hour: "중식", menu: menu.lunch)
                 
                 // 석식
-                hourMenu(hour: "석식", menu: "쌀밥 채개장 돈육곤약장조림 탕평채 톳두부무침 배추김치")
+                hourMenu(hour: "석식", menu: menu.dinner)
             
             }
             
@@ -194,7 +194,7 @@ struct MealView: View {
                 .padding(.top, 10)
                 
                 
-                Spacer()
+                
                 Text(menu)
                     .font(.system(size: 14))
                     .padding(.leading, 10)
@@ -204,13 +204,30 @@ struct MealView: View {
         }
         .padding(.horizontal, 30)
     }
+    
+    
+    // 요일을 숫자로 매핑
+    func dayToNumber(day: String?) -> Int? {
+        guard let day = day else { return nil }
+        
+        let dayMapping: [String: Int] = [
+            "월": 0,
+            "화": 1,
+            "수": 2,
+            "목": 3,
+            "금": 4,
+            "토": 5,
+            "일": 6
+        ]
+        
+        return dayMapping[day]
+    }
 }
 
 #Preview {
     MealView(
         store: Store(
-            initialState: MealFeature.State(menu: [Menu(menuId: 1, date: "7월 11일", lunch: "쌀밥 채개장 돈육곤약장조림 탕평채 톳두부무침 배추김치", dinner: "쌀밥 채개장 돈육곤약장조림 탕평채 톳두부무침 배추김치")]
-            ),
+            initialState: MealFeature.State(),
             reducer: {
                 MealFeature()
             }))
