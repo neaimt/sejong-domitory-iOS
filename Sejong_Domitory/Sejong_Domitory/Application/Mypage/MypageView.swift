@@ -145,14 +145,14 @@ struct MypageView: View {
                     .fill(Color.white)
                 
                 
-//                    Toggle(isOn: $store.toggleisOn) {
-//                        Text("알림")
-//                            .font(.system(size: 15, weight: .bold))
-//                            .foregroundStyle(Color.sejonggray)
-//                            .padding(.leading, 20)
-//                    }
-//                    .toggleStyle(SwitchToggleStyle(tint: Color.sejonggray))
-//                    .padding(.trailing, 10)
+                Toggle(isOn: $store.toggleIsOn.sending(\.toggleButtonTapped)) {
+                        Text("알림")
+                            .font(.system(size: 15, weight: .bold))
+                            .foregroundStyle(Color.sejonggray)
+                            .padding(.leading, 20)
+                    }
+                    .toggleStyle(SwitchToggleStyle(tint: Color.sejonggray))
+                    .padding(.trailing, 10)
             }
             .frame(width: 130, height: 40)
             .padding(.trailing, 25)

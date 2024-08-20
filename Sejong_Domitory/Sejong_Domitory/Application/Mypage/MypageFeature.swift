@@ -4,11 +4,12 @@ import ComposableArchitecture
 struct MypageFeature {
     @ObservableState
     struct State: Equatable {
-        var toggleisOn: Bool = false
+        var toggleIsOn: Bool = false
     }
     
-    enum Action : BindableAction {
+    enum Action: BindableAction {
         case binding(BindingAction<State>)
+        case toggleButtonTapped(Bool)
         case logoutButtonTapped
     }
     
@@ -20,6 +21,10 @@ struct MypageFeature {
                 
             case .logoutButtonTapped:
                 print("mypage logoutButtonTapped")
+                return .none
+                
+            case let .toggleButtonTapped(isOn):
+                state.toggleIsOn.toggle()
                 return .none
             }
         }
