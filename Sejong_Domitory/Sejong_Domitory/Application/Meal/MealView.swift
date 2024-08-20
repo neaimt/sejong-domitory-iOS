@@ -9,10 +9,9 @@ struct Meal: Hashable {
 var meal: [Meal] = [Meal(hour: "조식", menu: "식당 카페에 샐러드&샌드위치 예약하신 후 이용 가능합니다."), Meal(hour: "중식", menu: "쌀밥 채개장 돈육곤약장조림 탕평채 톳두부무침 배추김치"), Meal(hour: "석식", menu: "쌀밥 채개장 돈육곤약장조림 탕평채 톳두부무침 배추김치")]
 
 struct MealView: View {
-    @State var day = ["월", "화", "수", "목", "금", "토", "일"]
-    @State var selectedDay: String?
     
-    let store: StoreOf<MealFeature>
+    @Namespace private var pickerTransition // 애니메이션 가능하게 해줌
+    @Bindable var store: StoreOf<MealFeature>
     
     var body: some View {
         VStack {
@@ -37,6 +36,7 @@ struct MealView: View {
     
     // 상단 헤더 + 식단표 이미지
     private var header: some View {
+        
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
             Rectangle()
                 .fill(Color.white)
@@ -64,6 +64,70 @@ struct MealView: View {
         }
     }
     
+    // 커스텀피커 함수
+    @ViewBuilder func customPicker<Content: View>(
+        selection: Binding<MealDay?>,
+        items: Binding<[MealDay]>,
+        selectionColor: Color = .crimsonred,
+        @ViewBuilder content: @escaping (MealDay) -> Content
+    ) -> some View {
+        
+        ScrollViewReader { proxy in
+            LazyHGrid(rows: [GridItem(.flexible())], spacing: 0) {
+                ForEach(items.wrappedValue, id:\.self) { item in
+                    let selected = selection.wrappedValue == item
+                    ZStack {
+                        if selected {
+                            Capsule()
+                                .foregroundStyle(
+                                    selectionColor.gradient.shadow(.inner(color: .black.opacity(0.5), radius: 1, x: 0, y: 0))
+                                )
+                                .matchedGeometryEffect(id: "picker", in: pickerTransition)
+                                
+                            content(item)
+                                .id(item)
+                                .foregroundStyle(.white)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 6)
+                                .lineLimit(1)
+                                .clipShape(Capsule())
+                                .shadow(radius: 10)
+                        } else {
+                            Capsule()
+                                .foregroundStyle(.clear)
+                            
+                            content(item)
+                                .id(item)
+                                .foregroundStyle(Color.sejonggray)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 6)
+                                .lineLimit(1)
+                                .clipShape(Capsule())
+                        }
+                    }
+                    .onTapGesture {
+                        withAnimation(.easeInOut(duration: 0.2)) {
+                            _ = store.send(.daySelected(item))
+                        }
+                    }
+                    .onChange(of: item) {
+                        withAnimation(.easeInOut(duration: 0.2)) {
+                            proxy.scrollTo(item)
+                        }
+                    }
+                    
+                }
+                .onAppear {
+                    store.send(.setInitialSelection)
+                }
+
+            }
+            .padding(.horizontal)
+            .fixedSize(horizontal: false, vertical: true)
+        }
+    }
+
+    
     // 요일 피커
     private var dayPicker: some View {
         ZStack {
@@ -73,12 +137,11 @@ struct MealView: View {
                 .frame(height: 31)
                 .padding(.horizontal, 50)
             
-            SegmentedPicker(selection: $selectedDay, items: $day) { d in
-                Text(d)
+            customPicker(selection: $store.selectedDay, items: $store.day) { item in
+                Text(item.dayName)
                     .font(.system(size: 16, weight: .bold))
-                    
             }
-            .padding(.horizontal, 34)
+                .padding(.horizontal, 34)
             
         }
     }
@@ -146,7 +209,7 @@ struct MealView: View {
 #Preview {
     MealView(
         store: Store(
-            initialState: MealFeature.State(menu: [Menu(date: "7월 11일", launch: "쌀밥 채개장 돈육곤약장조림 탕평채 톳두부무침 배추김치", dinner: "쌀밥 채개장 돈육곤약장조림 탕평채 톳두부무침 배추김치")]
+            initialState: MealFeature.State(menu: [Menu(menuId: 1, date: "7월 11일", lunch: "쌀밥 채개장 돈육곤약장조림 탕평채 톳두부무침 배추김치", dinner: "쌀밥 채개장 돈육곤약장조림 탕평채 톳두부무침 배추김치")]
             ),
             reducer: {
                 MealFeature()
