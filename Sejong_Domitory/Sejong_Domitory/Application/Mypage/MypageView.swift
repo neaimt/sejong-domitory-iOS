@@ -22,7 +22,6 @@ struct MypageView: View {
             
             inquiry // 문의
             
-            
             Spacer()
         }
         .ignoresSafeArea()
@@ -76,14 +75,17 @@ struct MypageView: View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
             
             Button {
-                // 기숙사 홈페이지 연결
+                store.send(.openURL(URL(string: "http://sejong.ac.kr/")!))
+                UIApplication.shared.open(store.openURL!)
             } label: {
                 Rectangle()
                     .fill(Color.white)
                     .frame(height: 50)
             }
             
-                
+//            Link(destination: URL(string: "http://sejong.ac.kr/" )!) {
+//                        Text("Safari App으로 이동해서 보여주기")
+//                    }
             Text("기숙사 홈페이지 바로가기")
                 .font(.system(size: 15, weight: .bold))
                 .padding(.leading, 30)
