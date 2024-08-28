@@ -9,10 +9,10 @@ struct NoticeDetailFeature {
     }
     
     enum Action {
-        case canceled
         case delegate(Delegate)
         enum Delegate {
-            case confirmDeletion
+            case appear
+            case disappear
         }
     }
     
@@ -20,9 +20,10 @@ struct NoticeDetailFeature {
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .canceled:
-                return .none
-                
+            case .delegate(.disappear):
+                return .run { _ in
+                    await self.dismiss()
+                }
             case .delegate:
                 return .none
             }

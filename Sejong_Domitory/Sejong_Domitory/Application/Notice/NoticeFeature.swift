@@ -22,6 +22,9 @@ struct NoticeFeature {
     enum Action {
         case setSearch(String)
         case path(StackAction<NoticeDetailFeature.State, NoticeDetailFeature.Action>)
+        
+        case detailAppear
+        case detailDisappear
     }
     
     var body: some ReducerOf<Self> {
@@ -31,12 +34,15 @@ struct NoticeFeature {
                 state.searchString = title
                 return .none
                 
-            case let .path(.element(id: id, action: .delegate(.confirmDeletion))):
-                guard state.path[id: id] != nil
-                    else { return .none }
-                    return .none
+            case .path(.element(id: _, action: .delegate(.appear))):
+                print("NoticeView에서 DetailView 생성 감지")
+                return .send(.detailAppear)
                 
-            case .path(_):
+            case .path(.element(id: _, action: .delegate(.disappear))):
+                print("NoticeView에서 DetailView 소멸 감지")
+                return .send(.detailDisappear)
+                
+            case .path(_), .detailAppear, .detailDisappear:
                 return .none
             }
         }

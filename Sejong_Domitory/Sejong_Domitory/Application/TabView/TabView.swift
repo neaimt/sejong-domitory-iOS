@@ -5,27 +5,34 @@ struct TabView: View {
     @Bindable var store: StoreOf<TabFeature>
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            VStack {
-                switch store.selection {
-                case .notice:
-                    NoticeView(store: store.scope(state: \.noticeState, action: \.notice))
-                    
-                case .complain:
-                    ComplainView()
-                    
-                case .meal:
-                    NavigationView {
+        GeometryReader { geometry in
+            ZStack(alignment: .bottom) {
+                VStack {
+                    switch store.selection {
+                    case .notice:
+                        NoticeView(store: store.scope(state: \.noticeState, action: \.notice))
+                            .frame(width: geometry.size.width, height: geometry.size.height)
+                        
+                    case .complain:
+                        ComplainView(store: store.scope(state: \.complainState, action: \.complain))
+                            .frame(width: geometry.size.width, height: geometry.size.height)
+                        
+                    case .meal:
                         MealView(store: store.scope(state: \.mealState, action: \.meal))
+                            .frame(width: geometry.size.width, height: geometry.size.height)
+                        
+                        
+                    case .mypage:
+                        MypageView(store: store.scope(state: \.mypageState, action: \.mypage))
+                            .frame(width: geometry.size.width, height: geometry.size.height)
                     }
-                    
-                case .mypage:
-                    MypageView(store: store.scope(state: \.mypageState, action: \.mypage))
                 }
+                
+                if ( store.selection != .complain && store.tabIsShow == true ) {
+                    tabBarVersion1(Store: store)
+                }
+                
             }
-            
-            tabBarVersion1(Store: store)
-               
         }
         .onAppear {
             print("TabView OnAppear")
