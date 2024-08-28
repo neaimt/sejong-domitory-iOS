@@ -1,58 +1,19 @@
-//
-//  LifeComplainView.swift
-//  Sejong_Domitory
-//
-//  Created by 박근경 on 2024/07/12.
-//
-
 import SwiftUI
+import ComposableArchitecture
 
 struct LifeComplainView: View {
+    @Bindable var store: StoreOf<LifeComplainFeature>
+    
     var body: some View {
         VStack {
             ScrollView {
-                // 리스트 스크롤 뷰로 제작
-                VStack {
-                    ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
-                        Rectangle()
-                            .fill(Color.white)
-                            .frame(height: 70)
-                        
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("호실 내 벌레")
-                                    .font(.system(size: 14, weight: .bold))
-                                    .padding(.bottom, 5)
-                                
-                                Text("최지후 | 2024-07-11")
-                                    .font(.system(size: 10, weight: .bold))
-                                    .padding(.bottom, 5)
-                            }
-                            .padding(.leading, 10)
-                            
-                            Spacer()
-                            
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 15)
-                                    .fill(Color.complain)
-                                    .frame(width: 50, height: 25)
-                                
-                                Text("비공개")
-                                    .font(.system(size: 10, weight: .bold))
-                                    .foregroundStyle(Color.white)
-                            }
-                            .padding(.trailing, 20)
-                        }
+                
+                ForEach(store.complain, id: \.self) { content in
+                    NavigationLink(state: ComplainDetailFeature.State(complain: content)) {
+                        complain(complain: content)
                     }
                 }
-                
-                Divider()
-                    .foregroundStyle(Color.search)
-                    .offset(y:-5)
-                
             }
-            
-            Spacer()
             
             // 글쓰기 버튼
             HStack {
@@ -76,8 +37,57 @@ struct LifeComplainView: View {
         }
         .ignoresSafeArea()
     }
+    
+    @ViewBuilder func complain(complain: Complaint) -> some View {
+        VStack {
+            ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
+                Rectangle()
+                    .fill(Color.white)
+                    .frame(height: 70)
+                    
+                
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("\(complain.title)")
+                            .font(.system(size: 14, weight: .bold))
+                            .padding(.bottom, 5)
+                        
+                        Text("\(complain.name) | \(complain.createdAt)")
+                            .font(.system(size: 10, weight: .bold))
+                            .padding(.bottom, 5)
+                    }
+                    .foregroundStyle(Color.black)
+                    .padding(.leading, 10)
+                    
+                    Spacer()
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15)
+                            .fill(Color.complain)
+                            .frame(width: 50, height: 25)
+                        
+                        if complain.status {
+                            Text("공개")
+                                .font(.system(size: 10, weight: .bold))
+                                .foregroundStyle(Color.white)
+                        }
+                        else {
+                            Text("비공개")
+                                .font(.system(size: 10, weight: .bold))
+                                .foregroundStyle(Color.white)
+                        }
+                    }
+                    .padding(.trailing, 20)
+                }
+            }
+            Divider()
+                .foregroundStyle(Color.search)
+                .offset(y:-5)
+        }
+    }
 }
 
 #Preview {
-    LifeComplainView()
+    LifeComplainView(store: Store(initialState: LifeComplainFeature.State(complain: lifes.complaints), reducer: {LifeComplainFeature()}))
 }
+
