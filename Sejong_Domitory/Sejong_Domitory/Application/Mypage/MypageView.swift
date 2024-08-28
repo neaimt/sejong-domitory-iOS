@@ -24,6 +24,12 @@ struct MypageView: View {
             
             Spacer()
         }
+        .fullScreenCover(isPresented: $store.pointViewIsShow, content: {
+            CheckPointView(store: store.scope(state: \.pointState, action: \.pointAction))
+        })
+        .transaction { transaction in
+            transaction.disablesAnimations = true
+        }
         .ignoresSafeArea()
     
     }
@@ -114,6 +120,7 @@ struct MypageView: View {
             
             Button {
                 // 상벌점 조회 화면 이동
+                store.send(.pointButtonTapped)
             } label: {
                 Rectangle()
                     .fill(Color.white)
