@@ -9,22 +9,17 @@ struct ComplainDetailFeature {
     }
     
     enum Action {
-        case canceled
-        case delegate(Delegate)
-        enum Delegate {
-            case confirmDeletion
-        }
+        case backButtonTapped
     }
     
     @Dependency(\.dismiss) var dismiss
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
-            case .canceled:
-                return .none
-                
-            case .delegate:
-                return .none
+            case .backButtonTapped:
+                return .run { _ in
+                    await self.dismiss()
+                }
             }
         }
     }
