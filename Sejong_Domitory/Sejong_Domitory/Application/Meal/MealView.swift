@@ -1,13 +1,6 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct Meal: Hashable {
-    var hour: String
-    var menu: String
-}
-
-var meal: [Meal] = [Meal(hour: "조식", menu: "식당 카페에 샐러드&샌드위치 예약하신 후 이용 가능합니다."), Meal(hour: "중식", menu: "쌀밥 채개장 돈육곤약장조림 탕평채 톳두부무침 배추김치"), Meal(hour: "석식", menu: "쌀밥 채개장 돈육곤약장조림 탕평채 톳두부무침 배추김치")]
-
 struct MealView: View {
     
     @Namespace private var pickerTransition // 애니메이션 가능하게 해줌
@@ -23,13 +16,30 @@ struct MealView: View {
             .padding(.top, 50)
             
             // 식단표
-            mealBoard(menu: store.menu[dayToNumber(day: store.selectedDay?.dayName) ?? 0])
-            .padding(.horizontal, 15)
-            
+            if store.menus.indices.contains(dayToNumber(day: store.selectedDay?.dayName) ?? 0) {
+                // 인덱스가 유효하면 배열에 접근
+                let menu = store.menus[dayToNumber(day: store.selectedDay?.dayName) ?? 0]
+                mealBoard(menu: menu)
+                    .padding(.horizontal, 15)
+            } else {
+                Text("No menu available")
+            }
 
             Spacer()
             
         }
+        .onAppear {
+            print("MealView 나타남")
+            store.send(.setInitialSelection)
+            store.send(.onAppear)
+          
+        }
+        .overlay {
+            if store.isLoading {
+                ProgressView()
+            }
+        }
+        .alert(store: store.scope(state: \.$alert, action: { .alert($0) }))
         .ignoresSafeArea()
     }
     
@@ -71,7 +81,6 @@ struct MealView: View {
         selectionColor: Color = .crimsonred,
         @ViewBuilder content: @escaping (MealDay) -> Content
     ) -> some View {
-        
         ScrollViewReader { proxy in
             LazyHGrid(rows: [GridItem(.flexible())], spacing: 0) {
                 ForEach(items.wrappedValue, id:\.self) { item in
@@ -117,10 +126,6 @@ struct MealView: View {
                     }
                     
                 }
-                .onAppear {
-                    store.send(.setInitialSelection)
-                }
-
             }
             .padding(.horizontal)
             .fixedSize(horizontal: false, vertical: true)
@@ -142,7 +147,6 @@ struct MealView: View {
                     .font(.system(size: 16, weight: .bold))
             }
                 .padding(.horizontal, 34)
-            
         }
     }
     
