@@ -9,33 +9,47 @@ struct NoticeDetailView: View {
             header
             Divider()
                 .padding(.bottom, 10)
-            
-           
-            
-                Text(store.notice.detail.noticeTitle) // 제목
+                
+            if let notice = store.notice {
+                Text(notice.noticeTitle) // 제목
                     .font(.system(size: 18, weight: .bold))
                 
-                Text(store.notice.detail.noticeCreatedAt) // 날짜
+                Text(notice.noticeCreatedAt) // 날짜
                     .foregroundStyle(Color.sejonggray)
                     .font(.system(size: 12, weight: .bold))
-            
-            
-            Divider()
-                .padding(.bottom, 10)
-            
-            Text(store.notice.detail.content) // 내용
-                .font(.system(size: 14))
+                
+                Divider()
+                    .padding(.bottom, 10)
+                
+                Text(notice.noticeContent) // 내용
+                    .font(.system(size: 14))
+                ForEach(notice.attachedFiles) { content in
+                    Text(content.attachedFileName) // 내용
+                    Text(content.attachedFileUrl) // 내용
+                }.font(.system(size: 14))
+            }
+             else {
+                Text("글을 성공적으로 불러오지 못했습니다.")
+            }
+
             
             Spacer()
         }
         .navigationBarBackButtonHidden()
         .onAppear {
             print("NoticeDetailView 나타남")
+            store.send(.onAppear)
             store.send(.delegate(.appear))
         }
         .onDisappear {
             print("NoticeDetailView 사라짐")
         }
+        .overlay {
+            if store.isLoading {
+                ProgressView()
+            }
+        }
+        .alert(store: store.scope(state: \.$alert, action: { .alert($0) }))
     }
     
     // 상단바
@@ -57,6 +71,6 @@ struct NoticeDetailView: View {
     }
 }
 
-#Preview {
-    NoticeDetailView(store: Store(initialState: NoticeDetailFeature.State(notice: noticeList.notices[1]), reducer: {NoticeDetailFeature()}))
-}
+//#Preview {
+//    NoticeDetailView(store: Store(initialState: NoticeDetailFeature.State(notice: noticeList.notices[1]), reducer: {NoticeDetailFeature()}))
+//}

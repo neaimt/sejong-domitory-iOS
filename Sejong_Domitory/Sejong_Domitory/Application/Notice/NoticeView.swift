@@ -14,7 +14,7 @@ struct NoticeView: View {
                 // 리스트 스크롤 뷰로 제작
                 ScrollView {
                     ForEach(store.notices, id: \.self) { content in
-                        NavigationLink(state: NoticeDetailFeature.State(notice: content)) {
+                        NavigationLink(state: NoticeDetailFeature.State(noticeId: content.noticeId)) {
                             notice(content: content)
                         }
                     }
@@ -24,6 +24,17 @@ struct NoticeView: View {
                 Spacer()
                 
             }
+            .onAppear {
+                print("NoticeView 나타남")
+                store.send(.onAppear)
+              
+            }
+            .overlay {
+                if store.isLoading {
+                    ProgressView()
+                }
+            }
+            .alert(store: store.scope(state: \.$alert, action: { .alert($0) }))
             .ignoresSafeArea()
         } destination: { store in
             NoticeDetailView(store: store)
@@ -92,10 +103,12 @@ struct NoticeView: View {
     NoticeView(
         store: Store(
             initialState: NoticeFeature.State(
-                notices: noticeList.notices,
+                notices: [],
                 searchString: ""
             ),
             reducer: {
                 NoticeFeature()
-            }))
+            }
+        )
+    )
 }
