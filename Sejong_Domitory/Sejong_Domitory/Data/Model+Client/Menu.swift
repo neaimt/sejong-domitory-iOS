@@ -22,7 +22,7 @@ struct MenuClient {
 extension MenuClient: DependencyKey {
     static let liveValue = Self(
         fetch: {
-            let url = URL(string: "https://3207-211-243-13-74.ngrok-free.app/menu")!
+            let url = URL(string: "\(serverURL)/menu")!
             let (data, _) = try await URLSession.shared.data(from: url)
             return try JSONDecoder().decode([Menu].self, from: data)
         }

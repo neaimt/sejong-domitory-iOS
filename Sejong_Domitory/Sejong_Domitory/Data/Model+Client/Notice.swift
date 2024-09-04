@@ -29,7 +29,7 @@ struct NoticeClient {
 extension NoticeClient: DependencyKey {
     static let liveValue = Self(
         fetch: {
-            let url = URL(string: "https://3207-211-243-13-74.ngrok-free.app/notice")!
+            let url = URL(string: "\(serverURL)/notice")!
             let (data, _) = try await URLSession.shared.data(from: url)
             return try JSONDecoder().decode([Notice].self, from: data)
         }

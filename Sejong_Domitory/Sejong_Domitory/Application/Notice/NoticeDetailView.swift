@@ -49,7 +49,12 @@ struct NoticeDetailView: View {
                 ProgressView()
             }
         }
-        .alert(store: store.scope(state: \.$alert, action: { .alert($0) }))
+        .alert(
+            store: store.scope(
+                state: \.$alert,
+                action: \.alert
+            )
+        )
     }
     
     // 상단바

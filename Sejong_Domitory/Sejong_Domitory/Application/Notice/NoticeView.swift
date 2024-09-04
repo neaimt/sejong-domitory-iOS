@@ -34,7 +34,12 @@ struct NoticeView: View {
                     ProgressView()
                 }
             }
-            .alert(store: store.scope(state: \.$alert, action: { .alert($0) }))
+            .alert(
+                store: store.scope(
+                    state: \.$alert,
+                    action: \.alert
+                )
+            )
             .ignoresSafeArea()
         } destination: { store in
             NoticeDetailView(store: store)
