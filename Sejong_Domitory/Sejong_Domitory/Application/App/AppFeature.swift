@@ -5,8 +5,8 @@ struct AppFeature {
     @ObservableState
     struct State: Equatable {
         var isLoggedIn = false
-        var loginState: LoginFeature.State?
         var tabState: TabFeature.State?
+        var loginState: LoginFeature.State?
     }
     
     enum Action {
@@ -34,7 +34,7 @@ struct AppFeature {
                 }
                 return .none
                 
-            case .login(.loginButtonTapped): // 로그인 화면에서 로그인 버튼 클릭
+            case .login(.loginResponse(.success)): // 로그인 화면에서 로그인 버튼 클릭
                 print("App loginButtonTapped")
                 return .send(.setLoggedIn(true))
                 

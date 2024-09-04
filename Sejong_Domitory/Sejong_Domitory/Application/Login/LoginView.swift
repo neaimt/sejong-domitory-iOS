@@ -20,31 +20,40 @@ struct LoginView: View {
             
             Spacer()
             
+            
             loginButton// 로그인 버튼
+            
         }
+        .overlay {
+            
+            if store.isLoading {
+                ProgressView()
+            }
+            
+            if let loginRecord = store.loginRecord {
+                VStack(alignment: .leading) {
+                    Text("Login successful!")
+                    Text("Login Record ID: \(loginRecord.loginRecordId)")
+                    Text("Cookies: \(loginRecord.cookies)")
+                    Text("Login Time: \(loginRecord.loginTime)")
+                }
+            }
+        }
+        .alert(
+            store: store.scope(
+                state: \.$alert,
+                action: \.alert
+            )
+        )
         .ignoresSafeArea(.keyboard)
     }
-//        .fullScreenCover(
-//              item: $store.scope(state: \.TabView, action: \.TabView)
-//            ) { TabViewStore in
-//              NavigationStack {
-//                  TabView(store: Store(initialState: store.TabView!,
-//                                       reducer: {
-//                      TabFeature()
-//                  }))
-//                  
-//              }
-//            }
-//            .transaction { transaction in
-//                transaction.disablesAnimations = true
-//            }
     
     // 세종대 로고
     private var logo: some View {
         Image("sejongLogo")
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(width: 200, height: 200)
+            .frame(width: 150, height: 150)
     }
     // 아이디
     private var id: some View {
@@ -54,7 +63,7 @@ struct LoginView: View {
                 .font(.system(size: 15, weight: .bold))
                 .offset(y:10)
             Spacer()
-            TextField("아이디를 입력해주세요", text: $store.id)
+            TextField("아이디를 입력해주세요", text: $store.userId.sending(\.updateUserId))
                 .textFieldStyle(LoginTextfieldStyle())
         }
         .frame(height: 68)
@@ -68,7 +77,7 @@ struct LoginView: View {
                 .font(.system(size: 15, weight: .bold))
                 .offset(y:10)
             Spacer()
-            SecureField("비밀번호를 입력해주세요", text: $store.pw)
+            SecureField("비밀번호를 입력해주세요", text: $store.password.sending(\.updatePassword))
                 .textFieldStyle(LoginTextfieldStyle())
                 
         }
@@ -89,18 +98,22 @@ struct LoginView: View {
     
     // 로그인 버튼
     private var loginButton: some View {
-        Button {
-            store.send(.loginButtonTapped)
-        } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 15)
-                    .fill(Color.crimsonred)
-                    .frame(height: 50)
-                Text("로그인")
-                    .foregroundStyle(Color.white)
-                    .font(.system(size: 18, weight: .bold))
+        VStack {
+            Button {
+                store.send(.loginButtonTapped)
+                
+            } label: {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 15)
+                        .fill(Color.crimsonred)
+                        .frame(height: 50)
+                    Text("로그인")
+                        .foregroundStyle(Color.white)
+                        .font(.system(size: 18, weight: .bold))
+                }
+                .padding(.horizontal, 50)
             }
-            .padding(.horizontal, 50)
+            .disabled(store.isLoading)
         }
     }
 }
