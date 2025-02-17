@@ -28,7 +28,7 @@ struct TabView: View {
                     }
                 }
                 
-                if ( store.selection != .complain && store.tabIsShow == true ) {
+                if ( store.tabIsShow == true ) {
                     tabBarVersion1(Store: store)
                 }
                 
@@ -95,49 +95,3 @@ struct TabView: View {
     TabView(store: Store(initialState: TabFeature.State(),
                          reducer: {TabFeature()}))
 }
-
-
-
-
-//import SwiftUI
-//import ComposableArchitecture
-//
-//struct TabView: View {
-//    @Bindable var store: StoreOf<TabFeature>
-//
-//    var body: some View {
-//        NavigationStack {
-//            Button("로그아웃 버튼") {
-//                store.send(.logout)
-//            }
-//            CustomTabBarContainerView(selection: $store.tabSelection) {
-//                NoticeView(
-//                    store: Store(
-//                        initialState: store.noticeState,
-//                        reducer: {
-//                            NoticeFeature()
-//                }))
-//                .tabBarItem(tab: .notice, selection: $store.tabSelection)
-//
-//                ComplainView()
-//                .tabBarItem(tab: .complain, selection: $store.tabSelection)
-//
-//                NavigationView {
-//                    MealView(store: Store(initialState: store.mealState, reducer: {
-//                        MealFeature()
-//                    }))
-//                }
-//                .tabBarItem(tab: .meal, selection: $store.tabSelection)
-//
-//                MypageView(
-//                    store: Store(
-//                        initialState: store.mypageState,
-//                        reducer: { MypageFeature()
-//                }))
-//                .tabBarItem(tab: .mypage, selection: $store.tabSelection)
-//            }
-//            .ignoresSafeArea()
-//        }
-//    }
-//}
-//

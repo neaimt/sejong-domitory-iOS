@@ -11,10 +11,7 @@ struct TabFeature {
         
         var tabIsShow: Bool = true
         
-        var noticeState = NoticeFeature.State(
-            notices: noticeList.notices,
-            searchString: ""
-        )
+        var noticeState: NoticeFeature.State = NoticeFeature.State(searchString: "")
         var complainState: ComplainFeature.State = ComplainFeature.State()
         var mealState = MealFeature.State()
         var mypageState = MypageFeature.State()

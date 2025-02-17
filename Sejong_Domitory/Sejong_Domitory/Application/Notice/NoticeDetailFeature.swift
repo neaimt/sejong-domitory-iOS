@@ -42,7 +42,7 @@ struct NoticeDetailFeature {
                 return .none
                 
             case .onAppear:
-                if let url = URL(string: "\(serverURL)/\(state.noticeId)") {
+                if let url = URL(string: "\(serverURL)/notice/\(state.noticeId)") {
                     if state.notice == nil && !state.isLoading {
                         print("Valid URL: \(url)")
                         return .send(.fetchNoticeDetail(url))

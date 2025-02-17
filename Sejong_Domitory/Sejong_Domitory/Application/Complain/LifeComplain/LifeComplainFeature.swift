@@ -21,11 +21,6 @@ struct LifeComplainFeature {
             case .binding(_):
                 return .none
                 
-            case let .path(.element(id: id, action: .delegate(.confirmDeletion))):
-                guard state.path[id: id] != nil
-                    else { return .none }
-                    return .none
-                
             case .path(_):
                 return .none
             }

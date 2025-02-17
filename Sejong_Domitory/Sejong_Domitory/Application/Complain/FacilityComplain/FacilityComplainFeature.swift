@@ -21,13 +21,6 @@ struct FacilityComplainFeature {
             case .binding(_):
                 return .none
                 
-            case let .path(.element(id: id, action: .delegate(.confirmDeletion))):
-                guard state.path[id: id] != nil
-                    else { return .none }
-                return .run { send in
-                    await send(.path(.popFrom(id: id)))
-                }
-                
             case .path(_):
                 return .none
             }

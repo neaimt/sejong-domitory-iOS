@@ -88,13 +88,17 @@ struct NoticeFeature {
                 }
                 return .none
                 
+            case .fetchNoticesResponse:
+                return .none
             case .alert:
                 return .none
             }
         }
-        .ifLet(\.$alert, action: /Action.alert)
         .forEach(\.path, action: \.path) {
             NoticeDetailFeature()
+        }
+        .ifLet(\.$alert, action: /Action.alert) {
+            
         }
     }
 }

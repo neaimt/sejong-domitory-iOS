@@ -81,11 +81,6 @@ struct ComplainFeature {
             case .backButtonTapped:
                 return .none
                 
-            case let .facilityAction(.path(.element(id: id, action: .delegate(.confirmDeletion)))):
-                guard state.facilityState.path[id: id] != nil
-                    else { return .none }
-                    return .none
-                
             case .facilityAction(_):
                 return .none
                 

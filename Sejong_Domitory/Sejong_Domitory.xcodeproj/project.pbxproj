@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F2B53C32C8841AD007095F6 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2B53C22C8841AD007095F6 /* URL.swift */; };
 		0F7098FE2C6CC19F0082FD75 /* AppFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7098FD2C6CC19F0082FD75 /* AppFeature.swift */; };
 		0F7099002C6CC1A80082FD75 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7098FF2C6CC1A80082FD75 /* AppView.swift */; };
 		0F8D1E572C7F4B7B0025A7C7 /* CheckPointFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8D1E562C7F4B7B0025A7C7 /* CheckPointFeature.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F2B53C22C8841AD007095F6 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		0F7098FD2C6CC19F0082FD75 /* AppFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFeature.swift; sourceTree = "<group>"; };
 		0F7098FF2C6CC1A80082FD75 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		0F8D1E562C7F4B7B0025A7C7 /* CheckPointFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPointFeature.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				0FB71D7A2C58E7BC005372E2 /* Complaint.swift */,
 				0FB71D7E2C58E7CE005372E2 /* Menu.swift */,
 				0FB71D7C2C58E7C5005372E2 /* Mypage.swift */,
+				0F2B53C22C8841AD007095F6 /* URL.swift */,
 			);
 			path = "Model+Client";
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				0FF713062C870AAE00263FF0 /* FileDownloadFeature.swift in Sources */,
 				0FB71D822C58FED9005372E2 /* DateFormatter+Extension.swift in Sources */,
 				0FC1A82A2C4F9BC9001BF110 /* ComplainView.swift in Sources */,
+				0F2B53C32C8841AD007095F6 /* URL.swift in Sources */,
 				0FC1A7932C4E83FF001BF110 /* TabBarItemPreferenceKey.swift in Sources */,
 				0FB71D682C4FC57B005372E2 /* PickerExample.swift in Sources */,
 				0F9AA7412C760ED600F05055 /* ComplainDetailFeature.swift in Sources */,

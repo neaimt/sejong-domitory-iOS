@@ -34,6 +34,7 @@ struct FacilityComplainView: View {
                 .padding(.trailing, 25)
                 .padding(.bottom, 20)
             }
+            .offset(y:-70)
         }
         .ignoresSafeArea()
     }

@@ -24,26 +24,26 @@ struct NoticeView: View {
                 Spacer()
                 
             }
-            .onAppear {
-                print("NoticeView 나타남")
-                store.send(.onAppear)
-              
-            }
-            .overlay {
-                if store.isLoading {
-                    ProgressView()
-                }
-            }
-            .alert(
-                store: store.scope(
-                    state: \.$alert,
-                    action: \.alert
-                )
-            )
             .ignoresSafeArea()
         } destination: { store in
             NoticeDetailView(store: store)
         }
+        .onAppear {
+            print("NoticeView 나타남")
+            store.send(.onAppear)
+          
+        }
+        .overlay {
+            if store.isLoading {
+                ProgressView()
+            }
+        }
+        .alert(
+            store: store.scope(
+                state: \.$alert,
+                action: \.alert
+            )
+        )
     }
     
     // 공지사항
